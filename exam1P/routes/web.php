@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+#Ruta tipo view para login
+Route::view('/', 'login')->name('login');
+
+#Ruta tipo get para productos
+Route::get('/productos', function () {
+    return view('productos');
+})->name('productos');
+
+
