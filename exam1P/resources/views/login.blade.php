@@ -5,7 +5,7 @@
 @section('contenido')
 
 <h1 class="display-1 text-center text-info mt-4">Login</h1>
-<div class="container text center">
+<div class="container text-center">
     <div class="row">
         <div class="col"></div>
 
