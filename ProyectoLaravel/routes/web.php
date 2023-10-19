@@ -6,7 +6,7 @@ use App\Http\Controllers\DiarioController; //Instruccion para importar el contro
 
 #   Ruta para Index
 
-Route::get('/', [DiarioController::class, 'metodoInicio'])->name('apodoInicio');
+// Route::get('/', [DiarioController::class, 'metodoInicio'])->name('apodoInicio');
 
 // Route::view('/', 'welcome')->name('home');
 
@@ -16,7 +16,7 @@ Route::get('/', [DiarioController::class, 'metodoInicio'])->name('apodoInicio');
 
 #   Ruta para formulario
 
-Route::get('/formulario', [DiarioController::class, 'metodoFormulario'])->name('apodoFormulario');
+// Route::get('/formulario', [DiarioController::class, 'metodoFormulario'])->name('apodoFormulario');
 
 //Route::view('/form', 'formulario')->name('form');
 // Route::get('/form', function () {
@@ -25,7 +25,7 @@ Route::get('/formulario', [DiarioController::class, 'metodoFormulario'])->name('
 
 #   Ruta para recuerdos
 
-Route::get('/recuerdos', [DiarioController::class, 'metodoRecuerdos'])->name('apodoRecuerdos');
+// Route::get('/recuerdos', [DiarioController::class, 'metodoRecuerdos'])->name('apodoRecuerdos');
 
 //Route::view('/memories', 'recuerdos')->name('memories');
 
@@ -34,4 +34,13 @@ Route::get('/recuerdos', [DiarioController::class, 'metodoRecuerdos'])->name('ap
 // });
 
 
+// Sintaxis de Rutas Agrupadas
 
+Route::controller(DiarioController::class)->group(function (){
+    Route::get('/', 'metodoInicio')->name('apodoInicio');
+    Route::get('/formulario', 'metodoFormulario')->name('apodoFormulario');
+    Route::get('/recuerdos', 'metodoRecuerdos')->name('apodoRecuerdos');
+});
+
+//Ruta del boton de la vista formulario
+Route::post('/guardarRecuerdo',[DiarioController::class, 'guardarRecuerdo'])->name('guardar');
