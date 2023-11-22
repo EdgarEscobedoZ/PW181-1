@@ -8,15 +8,15 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('apodoInicio')?'text-danger fw-bold':'' }}" aria-current="page" href="/">Inicio</a>
+            <a class="nav-link {{ request()->routeIs('recuerdo.inicio')?'text-danger fw-bold':'' }}" aria-current="page" href="/">Inicio</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('apodoFormulario')?'text-danger fw-bold':'' }}" href="/formulario">Formulario</a>
+            <a class="nav-link {{ request()->routeIs('recuerdo.create')?'text-danger fw-bold':'' }}" href="/recuerdo/create">Formulario</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('apodoRecuerdos')?'text-danger fw-bold':'' }}" href="/recuerdos">Recuerdos</a>
+            <a class="nav-link {{ request()->routeIs('recuerdo.index')?'text-danger fw-bold':'' }}" href="/recuerdo">Recuerdos</a>
           </li>
 
         </ul>

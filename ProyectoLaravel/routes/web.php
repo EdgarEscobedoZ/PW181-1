@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiarioController; //Instruccion para importar el controlador 
+use App\Http\Controllers\controllerCrudD; //Instruccion para importar el controlador
  
 
 #   Ruta para Index
@@ -34,13 +35,22 @@ use App\Http\Controllers\DiarioController; //Instruccion para importar el contro
 // });
 
 
-// Sintaxis de Rutas Agrupadas
+// Rutas para Diario Controller
 
 Route::controller(DiarioController::class)->group(function (){
-    Route::get('/', 'metodoInicio')->name('apodoInicio');
-    Route::get('/formulario', 'metodoFormulario')->name('apodoFormulario');
-    Route::get('/recuerdos', 'metodoRecuerdos')->name('apodoRecuerdos');
+    //Route::get('/formulario', 'metodoFormulario')->name('apodoFormulario');
+    //Route::get('/recuerdos', 'metodoRecuerdos')->name('apodoRecuerdos');
 });
 
 //Ruta del boton de la vista formulario
-Route::post('/guardarRecuerdo',[DiarioController::class, 'guardarRecuerdo'])->name('guardar');
+//Route::post('/guardarRecuerdo',[DiarioController::class, 'guardarRecuerdo'])->name('guardar');
+
+//Rutas para controlador CRUD
+
+Route::get('/recuerdo/create', [controllerCrudD::class, 'create'])->name('recuerdo.create');
+
+Route::post('/recuerdo', [controllerCrudD::class, 'store'])->name('recuerdo.store');
+
+Route::get('/recuerdo', [controllerCrudD::class, 'index'])->name('recuerdo.index');
+
+Route::get('/', [controllerCrudD::class, 'inicio'])->name('recuerdo.inicio');
